@@ -13,12 +13,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.UIManager;
-
+import javax.swing.JList;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Program {
-
+	private JList list;
 	private JFrame frame;
 	private MyPanel panel;
 	private JFormattedTextField formattedTextField;
@@ -108,7 +108,8 @@ dopColorSwitcher.setBackground(tmp);
 		 		JButton btnNewButton_2 = new JButton("\u0417\u0430\u0431\u0440\u0430\u0442\u044C");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setShip(panel.getUFO(Integer.parseInt(formattedTextField.getText())-1));
+				panel_1.setUFO(panel.getUFO(Integer.parseInt(formattedTextField.getText())-1));
+				panel_1.repaint();
 				panel.repaint();
 			}
 		});
@@ -134,5 +135,44 @@ dopColorSwitcher.setBackground(tmp);
 		 		JLabel label_3 = new JLabel("  цвет");
 		 		label_3.setBounds(1058, 152, 46, 14);
 		 		frame.getContentPane().add(label_3);
+		 		
+		 		String[] str = new String[5];
+		 		 		for(int i = 1;i<6;i++) {
+		 		 			str[i-1] = "Уровень " + i; 
+		 		 		}
+		 		 		list = new JList(str); 
+		 		 		list.enable(false); 
+		 		 		list.setSelectedIndex(0); 
+		 		 		list.setBounds(964, 590, 140, 115); 
+		 		 		frame.getContentPane().add(list); 
+		 		 		
+		 		 		JButton btnNewButton_3 = new JButton("<--");
+		 		 		btnNewButton_3.addActionListener(new ActionListener() {
+		 		 			public void actionPerformed(ActionEvent e) {
+		 		 				int select = list.getSelectedIndex();
+		 		 				if(select>0) {
+		 		 					list.setSelectedIndex(select - 1);
+		 		 					panel.levelDown();
+		 		 					panel.repaint();
+		 		 				}
+		 		 			}
+		 		 		});
+		 		 		btnNewButton_3.setBounds(963, 716, 49, 37);
+		 		 		frame.getContentPane().add(btnNewButton_3);
+		 		 		
+		 		 		JButton button = new JButton("-->");
+		 		 		button.addActionListener(new ActionListener() {
+		 		 			public void actionPerformed(ActionEvent e) {
+		 		 				int select = list.getSelectedIndex();
+		 		 				if(select<5) {
+		 		 					list.setSelectedIndex(select + 1);
+		 		 					panel.levelUp();
+		 		 					panel.repaint();
+		 		 				}
+		 		 				
+		 		 			}
+		 		 		});
+		 		 		button.setBounds(1058, 716, 49, 37);
+		 		 		frame.getContentPane().add(button);
 	}
 }

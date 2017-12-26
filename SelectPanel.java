@@ -17,7 +17,7 @@ public class SelectPanel extends JPanel {
 	 		}
 	 	}
 	 	
-	 	public void setShip(ITechnique ship) {
-	 		this.ufo = ship;
+	 	public void setUFO(ITechnique ufo) {
+	 		this.ufo = ufo;
 	 	}
 	 }

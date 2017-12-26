@@ -2,36 +2,61 @@ package techProgr;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Font;
+import java.util.ArrayList;
 
 public class Parking {
-	    ClassArray<ITechnique> parking;
+	    ArrayList<ClassArray<ITechnique>> parking;
 	 	private int countPlaces = 20;
 	 	private int placeSizeWidth = 220;
 	 	private int placeSizeHeight = 160;
+	 	private int currentLevel;
 	 	
-	 	public Parking() {
-	 		parking = new ClassArray<ITechnique>(countPlaces,null);
+	 	public Parking(int levels) {
+	 		parking = new ArrayList<ClassArray<ITechnique>>();
+	 		 		currentLevel = 0;
+	 		 		for(int i = 0;i<levels;i++) {
+	 		 			parking.add(new ClassArray<ITechnique>(countPlaces,null));
+	 		 		} 
 	 	}
 	 	
-	 	public int putShipInParking(ITechnique ufo) {
-	 		return parking.addUFO(ufo);
+	 	public int putUFOInParking(ITechnique ufo) {
+	 		return parking.get(currentLevel).addUFO(ufo);
 	 	}
 	 	
 	 	public ITechnique getUFOInParking(int ticket) {
-	 		return parking.getUFO(ticket);
+	 		return parking.get(currentLevel).getUFO(ticket);
 	 	}
 	 	
 	 	public void drawAll(Graphics g) {
 	 		for(int i = 0;i<countPlaces;i++) {
-	 			ITechnique ufo = parking.popUFO(i);
+	 			ITechnique ufo = parking.get(currentLevel).popUFO(i);
 	 			if(ufo!=null) {
 	 				ufo.setPosition(5 + i /5 * placeSizeWidth + 2, i % 5 * placeSizeHeight + 60);
 	 				ufo.drawUFO(g);
 	 			}
 	 		}
 	 	}
+	 	public void levelUp() {
+	 		 		if(currentLevel + 1 < parking.size()) {
+	 		 			currentLevel++;
+	 		 		}
+	 		 	}
+	 	
+	 		 	public void levelDown() {
+	 		 		if(currentLevel > 0) {
+	 		 			currentLevel--;
+	 		 		}
+	 		 	}
+	 		 
+	 		 	public int getCurentLevel() {
+	 		 		return currentLevel;
+	 		 	}
 	 	
 	 	public void drawMarking(Graphics g) {
+	 		g.setColor(Color.BLUE);
+	 		 		g.setFont(new Font("Arial",Font.BOLD,30));
+	 		 		g.drawString("L" + (currentLevel+1), (countPlaces/5)*placeSizeWidth - 70, 830);
 	 		g.setColor(Color.BLACK);
 	 		g.drawRect(0, 0, (countPlaces / 5) * placeSizeWidth, 800);
 	 		for(int i = 0; i < countPlaces / 5; i++) {
