@@ -11,6 +11,7 @@ import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
 import java.awt.dnd.DropTargetListener;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -20,9 +21,11 @@ import javax.swing.border.Border;
 public class Panelka extends JPanel implements DropTargetListener {
 
 	private ITechnique ufo;
+	private Logger logger;
 
 	public Panelka() {
 		super();
+		logger = Logger.getGlobal();
 		new DropTarget(this, this);
 		this.setLayout(null);
 		MagicLabel lblNewLabel = new MagicLabel("\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0446\u0432\u0435\u0442", true, new IColor() {
@@ -92,10 +95,11 @@ public class Panelka extends JPanel implements DropTargetListener {
 						.getTransferData(DataFlavor.stringFlavor);
 				if (dragContents.equals("SimpleUFO")) {
 					ufo = new UFO(50, 5, 100, Color.black);
+					logger.info("Создан объект НЛО");
 					repaint();
 				} else if (dragContents.equals("MegaUFO")) {
-					ufo = new BombUFO(50, 5, 100, Color.BLACK, true, true,
-							Color.BLACK);
+					ufo = new BombUFO(50, 5, 100, Color.BLACK, true, true, Color.BLACK);
+					logger.info("Создан объект боевой НЛО");
 					repaint();
 				} else {
 					dtde.rejectDrop();

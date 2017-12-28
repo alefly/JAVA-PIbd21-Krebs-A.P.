@@ -24,17 +24,22 @@ public class Parking {
 		}
 	}
 
-	public int putUFOInParking(ITechnique ufo) {
+	public int putUFOInParking(ITechnique ufo) throws OverflowException  {
 		return parking.get(currentLevel).addUFO(ufo);
 	}
 
-	public ITechnique getUFOInParking(int ticket) {
+	public ITechnique getUFOInParking(int ticket) throws IndexOutOfRangeException {
 		return parking.get(currentLevel).getUFO(ticket);
 	}
 
 	public void drawAll(Graphics g) {
 		for (int i = 0; i < countPlaces; i++) {
-			ITechnique ufo = parking.get(currentLevel).popUFO(i);
+			ITechnique ufo = null;
+			 			try {
+			 				ufo = parking.get(currentLevel).popUFO(i);
+			 			} catch (IndexOutOfRangeException e) {
+			 				
+			 			}
 			if (ufo != null) {
 				ufo.setPosition(5 + i / 5 * placeSizeWidth + 2, i % 5
 						* placeSizeHeight + 60);
@@ -81,7 +86,7 @@ public class Parking {
 			ObjectOutputStream os = new ObjectOutputStream(fileStream);
 			os.writeObject(parking);
 		} catch (Exception e) {
-			System.out.println("Íåò äîñòóïà ê ôàéëó");
+			System.out.println("Сохранение не удалось");
 		}
 	}
 
@@ -91,7 +96,7 @@ public class Parking {
 			ObjectInputStream inObject = new ObjectInputStream(inStream);
 			parking = (ArrayList<ClassArray<ITechnique>>) inObject.readObject();
 		} catch (Exception ex) {
-			System.out.println("Сохранение прошло успешно");
+			System.out.println("Загрузка прошла успешно");
 		}
 	}
 }
