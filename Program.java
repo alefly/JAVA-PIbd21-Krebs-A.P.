@@ -21,12 +21,17 @@ import javax.swing.JList;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Logger;
 
 public class Program {
 	private JList list;
 	private JFrame frame;
 	private MyPanel panel;
 	private JFormattedTextField formattedTextField;
+	private Logger logger;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -41,11 +46,15 @@ public class Program {
 		});
 	}
 
-	public Program() {
+	public Program() throws SecurityException, IOException {
 		initialize();
 	}
 
-	private void initialize() {
+	private void initialize() throws SecurityException, IOException {
+		logger = Logger.getGlobal(); 
+		 		Handler h = new FileHandler(); 
+		 		logger.addHandler(h); 
+		 		logger.setUseParentHandlers(false); 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1200, 950);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,8 +96,11 @@ public class Program {
 		JButton btnNewButton_2 = new JButton("\u0417\u0430\u0431\u0440\u0430\u0442\u044C");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setUFO(panel.getUFO(Integer
-						.parseInt(formattedTextField.getText()) - 1));
+				try {
+					panel_1.setUFO(panel.getUFO(Integer.parseInt(formattedTextField.getText()) - 1));
+				} catch (NumberFormatException | IndexOutOfRangeException e1) {
+					logger.info("Общая ошибка");
+				}
 				panel_1.repaint();
 				panel.repaint();
 			}

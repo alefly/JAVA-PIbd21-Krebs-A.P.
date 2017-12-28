@@ -14,30 +14,30 @@ public class ClassArray<T extends ITechnique> implements Serializable {
 		this.maxCount = size;
 	}
 	
-	public int addUFO(T ufo) {
+	public int addUFO(T ufo) throws OverflowException {
 		for(int i = 0; i < maxCount; i++) {
 			if(checkFreePlace(i)) {
 				places.put(i, ufo);
 				return i;
 			}
 		}
-		return -1;
+		throw new OverflowException();
 	}
 	
-	public T getUFO(int index) {
+	public T getUFO(int index) throws IndexOutOfRangeException {
 		if(!checkFreePlace(index)) {
 			T ufo = places.get(index);
 			places.remove(index);
 			return ufo;
 		}
-		return defaultValue;
+		throw new IndexOutOfRangeException();
 	}
 	
-	public T popUFO(int index) {
+	public T popUFO(int index) throws IndexOutOfRangeException{
 		if(!checkFreePlace(index)) {
 			return places.get(index);
 		}
-		return defaultValue;
+		throw new IndexOutOfRangeException();
 	}
 	
 	private boolean checkFreePlace(int index) {

@@ -19,7 +19,12 @@ public class MyPanel extends JPanel {
 		super.paint(g);
 		parking.drawMarking(g);
 		if (ufo != null) {
-			parking.putUFOInParking(ufo);
+
+			try {
+				parking.putUFOInParking(ufo);
+			} catch (OverflowException e) {
+			}
+
 			ufo = null;
 		}
 		parking.drawAll(g);
@@ -29,7 +34,7 @@ public class MyPanel extends JPanel {
 		this.ufo = ufo;
 	}
 
-	public ITechnique getUFO(int i) {
+	public ITechnique getUFO(int i) throws IndexOutOfRangeException {
 		return parking.getUFOInParking(i);
 	}
 
@@ -40,15 +45,14 @@ public class MyPanel extends JPanel {
 	public void levelDown() {
 		parking.levelDown();
 	}
-	
+
 	public void loadParking(String fileName) {
-		 		this.parking.loadData(fileName);
-		 		repaint();
-		 	}
-		 	
-		 	
-		 	public void saveParking(String fileName) {
-		 		this.parking.saveData(fileName);
-		 		repaint();
-		 	}
+		this.parking.loadData(fileName);
+		repaint();
+	}
+
+	public void saveParking(String fileName) {
+		this.parking.saveData(fileName);
+		repaint();
+	}
 }
