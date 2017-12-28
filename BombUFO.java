@@ -36,5 +36,8 @@ public class BombUFO extends UFO {
 	             g.drawString("= ^ - ^ =", posX + 25, posY + 19);
 	         }
 	 	}
+	 	public void setDopColor(Color c) {
+	 		 		dopColor = c;
+	 		 	}
 	 
 	 }

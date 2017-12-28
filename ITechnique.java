@@ -1,5 +1,6 @@
 package techProgr;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public interface ITechnique {
@@ -8,4 +9,5 @@ public interface ITechnique {
 	void loadPassenger(int count);
 	int getPassenger();
 	void drawUFO(Graphics g);
+	void setBodyColor(Color c);
 }

@@ -63,5 +63,9 @@ public class UFO extends Transport{
 				super.weight = 1000;
 	 		}
 	 	}
-	 
+	 	
+	 	@Override
+	 	 	public void setBodyColor(Color c) {
+	 	 		colorBody = c;
+	 	 	}
 	 }
