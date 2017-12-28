@@ -7,13 +7,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.UIManager;
 import javax.swing.JList;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -42,7 +47,7 @@ public class Program {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1175, 907);
+		frame.setBounds(100, 100, 1200, 950);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -136,5 +141,36 @@ public class Program {
 		});
 		button.setBounds(1065, 137, 49, 37);
 		frame.getContentPane().add(button);
+		
+		JMenuBar menuBar = new JMenuBar(); 
+		 		JMenu file = new JMenu("Меню"); 
+		 		JMenuItem save = new JMenuItem("Сохранить"); 
+		 		JMenuItem load = new JMenuItem("Загрузить"); 
+		 		save.addActionListener(new ActionListener() {
+		 			@Override
+		 			public void actionPerformed(ActionEvent arg0) {
+		 				JFileChooser fc = new JFileChooser();  
+		 				if (fc.showSaveDialog(frame) == JFileChooser.APPROVE_OPTION) {  
+		 				    try {  
+		 				        panel.saveParking(fc.getSelectedFile().getPath()); 
+		 				    }  
+		 				    catch (Exception e) {
+		 				    	System.out.println("Ошибка сохранения");
+		 				    }  
+		 			} 
+		 			}
+		 		});
+		 		load.addActionListener(new ActionListener() {
+		 			public void actionPerformed(ActionEvent e) {
+		 				JFileChooser fc = new JFileChooser();  
+		 				if (fc.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {  
+		 					panel.loadParking(fc.getSelectedFile().getPath());
+		 				}
+		 			}
+		 	});
+		 		file.add(save);
+		 		file.add(load);
+		 		menuBar.add(file);
+		 		frame.setJMenuBar(menuBar);
 	}
 }

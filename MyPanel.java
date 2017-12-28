@@ -40,4 +40,15 @@ public class MyPanel extends JPanel {
 	public void levelDown() {
 		parking.levelDown();
 	}
+	
+	public void loadParking(String fileName) {
+		 		this.parking.loadData(fileName);
+		 		repaint();
+		 	}
+		 	
+		 	
+		 	public void saveParking(String fileName) {
+		 		this.parking.saveData(fileName);
+		 		repaint();
+		 	}
 }
