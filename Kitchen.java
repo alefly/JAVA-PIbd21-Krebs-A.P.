@@ -112,7 +112,7 @@ public class Kitchen {
 		
 		JButton button = new JButton("\u041F\u043E\u043C\u044B\u0442\u044C");
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {//помыть
+			public void actionPerformed(ActionEvent arg0) {//ГЇГ®Г¬Г»ГІГј
 				if(radioButton.isSelected() == true)
 					waterTap.State = true;
 				else 
@@ -121,7 +121,7 @@ public class Kitchen {
 	            {
 	                if (!waterTap.State)
 	                {
-	                	JOptionPane.showMessageDialog(null, "Кран закрыт, как мыть?");
+	                	JOptionPane.showMessageDialog(null, "ГЉГ°Г Г­ Г§Г ГЄГ°Г»ГІ, ГЄГ ГЄ Г¬Г»ГІГј?");
 	                    return;
 	                }
 	                potatos = new Potato[Integer.parseInt(spinner.getValue().toString())];
@@ -134,11 +134,11 @@ public class Kitchen {
 	                {
 	                    potatos[i].Dirty(0);
 	                }
-	                JOptionPane.showMessageDialog(null, "Картошку помыли, можно чистить");
+	                JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГі ГЇГ®Г¬Г»Г«ГЁ, Г¬Г®Г¦Г­Г® Г·ГЁГ±ГІГЁГІГј");
 	            }
 	            else
 	            {
-	            	JOptionPane.showMessageDialog(null, "Картошки то нет, что мыть?");
+	            	JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГЁ ГІГ® Г­ГҐГІ, Г·ГІГ® Г¬Г»ГІГј?");
 	            }
 			}
 		});
@@ -147,22 +147,22 @@ public class Kitchen {
 		
 		JButton button_1 = new JButton("\u041F\u043E\u0447\u0438\u0441\u0442\u0438\u0442\u044C");
 		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {//почистить
+			public void actionPerformed(ActionEvent arg0) {//ГЇГ®Г·ГЁГ±ГІГЁГІГј
 				if (potatos == null)
 	            {
-					JOptionPane.showMessageDialog(null, "Картошки то нет, что чистить?");
+					JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГЁ ГІГ® Г­ГҐГІ, Г·ГІГ® Г·ГЁГ±ГІГЁГІГј?");
 	                return;
 	            }
 	            if (potatos.length == 0)
 	            {
-	            	JOptionPane.showMessageDialog(null, "Картошки то нет, что чистить?");
+	            	JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГЁ ГІГ® Г­ГҐГІ, Г·ГІГ® Г·ГЁГ±ГІГЁГІГј?");
 	                return;
 	            }
 	            for (int i = 0; i < potatos.length; ++i)
 	            {
 	                if (potatos[i].dirty > 0)
 	                {
-	                	JOptionPane.showMessageDialog(null, "Картошка грязная!!! Помыть бы ее сначала, а уж потом чистить");
+	                	JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГ  ГЈГ°ГїГ§Г­Г Гї!!! ГЏГ®Г¬Г»ГІГј ГЎГ» ГҐГҐ Г±Г­Г Г·Г Г«Г , Г  ГіГ¦ ГЇГ®ГІГ®Г¬ Г·ГЁГ±ГІГЁГІГј");
 	                    return;
 	                }
 	            }
@@ -170,7 +170,7 @@ public class Kitchen {
 	            {
 	                knife.Clean(potatos[i]);
 	            }
-	            JOptionPane.showMessageDialog(null, "Картошку очистили, можно резать");
+	            JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГі Г®Г·ГЁГ±ГІГЁГ«ГЁ, Г¬Г®Г¦Г­Г® Г°ГҐГ§Г ГІГј");
 
 			}
 		});
@@ -179,22 +179,22 @@ public class Kitchen {
 		
 		JButton button_2 = new JButton("\u041F\u043E\u0440\u0435\u0437\u0430\u0442\u044C");
 		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {//порезать
+			public void actionPerformed(ActionEvent arg0) {//ГЇГ®Г°ГҐГ§Г ГІГј
 				if (potatos == null)
 	            {
-					JOptionPane.showMessageDialog(null, "Картошки то нет, что резать?");
+					JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГЁ ГІГ® Г­ГҐГІ, Г·ГІГ® Г°ГҐГ§Г ГІГј?");
 	                return;
 	            }
 	            if (potatos.length == 0)
 	            {
-	            	JOptionPane.showMessageDialog(null, "Картошки то нет, что резать?");
+	            	JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГЁ ГІГ® Г­ГҐГІ, Г·ГІГ® Г°ГҐГ§Г ГІГј?");
 	                return;
 	            }
 	            for (int i = 0; i < potatos.length; ++i)
 	            {
 	                if (potatos[i].dirty > 0)
 	                {
-	                	JOptionPane.showMessageDialog(null, "Картошка грязная!!! Помыть бы ее сначала, а уж потом резать");
+	                	JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГ  ГЈГ°ГїГ§Г­Г Гї!!! ГЏГ®Г¬Г»ГІГј ГЎГ» ГҐГҐ Г±Г­Г Г·Г Г«Г , Г  ГіГ¦ ГЇГ®ГІГ®Г¬ Г°ГҐГ§Г ГІГј");
 	                    return;
 	                }
 	            }
@@ -202,8 +202,7 @@ public class Kitchen {
 	            {
 	                knife.Cut(potatos[i]);
 	            }
-	            //buttonAddPotatos.Enabled = true;
-	            JOptionPane.showMessageDialog(null, "Картошку порезали, можно добавлять в фритюрницу");
+	            JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГі ГЇГ®Г°ГҐГ§Г Г«ГЁ, Г¬Г®Г¦Г­Г® Г¤Г®ГЎГ ГўГ«ГїГІГј Гў ГґГ°ГЁГІГѕГ°Г­ГЁГ¶Гі");
 	        }
 		});
 		button_2.setBounds(419, 55, 89, 23);
@@ -215,11 +214,11 @@ public class Kitchen {
 		
 		JButton button_3 = new JButton("\u041D\u0430\u043B\u0438\u0442\u044C \u043C\u0430\u0441\u043B\u043E");
 		button_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {//масло
+			public void actionPerformed(ActionEvent arg0) {//Г¬Г Г±Г«Г®
 				oil = new Oil();
 	            fryer.AddOil(oil);
 	            ingr += 5;
-	            JOptionPane.showMessageDialog(null, "Масло добавили");
+	            JOptionPane.showMessageDialog(null, "ГЊГ Г±Г«Г® Г¤Г®ГЎГ ГўГЁГ«ГЁ");
 	           
 			}
 		});
@@ -228,32 +227,32 @@ public class Kitchen {
 		
 		JButton button_4 = new JButton("\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043A\u0430\u0440\u0442\u043E\u0448\u043A\u0443");
 		button_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {//картошка
+			public void actionPerformed(ActionEvent arg0) {//ГЄГ Г°ГІГ®ГёГЄГ 
 				if (potatos == null)
 	            {
-					JOptionPane.showMessageDialog(null, "Картошки то нет, что жарить собрались?");
+					JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГЁ ГІГ® Г­ГҐГІ, Г·ГІГ® Г¦Г Г°ГЁГІГј Г±Г®ГЎГ°Г Г«ГЁГ±Гј?");
 	                return;
 	            }
 	            if (potatos.length == 0)
 	            {
-	            	JOptionPane.showMessageDialog(null, "Картошки то нет, что жарить собрались?");
+	            	JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГЁ ГІГ® Г­ГҐГІ, Г·ГІГ® Г¦Г Г°ГЁГІГј Г±Г®ГЎГ°Г Г«ГЁГ±Гј?");
 	                return;
 	            }
 	            for (int i = 0; i < potatos.length; ++i)
 	            {
 	                if (potatos[i].dirty > 0)
 	                {
-	                	JOptionPane.showMessageDialog(null, "Картошка грязная!!! Как ее жарить, а ну мыть ее быстро!");
+	                	JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГ  ГЈГ°ГїГ§Г­Г Гї!!! ГЉГ ГЄ ГҐГҐ Г¦Г Г°ГЁГІГј, Г  Г­Гі Г¬Г»ГІГј ГҐГҐ ГЎГ»Г±ГІГ°Г®!");
 	                    return;
 	                }
 	                if (potatos[i].Have_skin)
 	                {
-	                	JOptionPane.showMessageDialog(null, "У нас обычная картошка, не в мундире. Надо почистить!");
+	                	JOptionPane.showMessageDialog(null, "Г“ Г­Г Г± Г®ГЎГ»Г·Г­Г Гї ГЄГ Г°ГІГ®ГёГЄГ , Г­ГҐ Гў Г¬ГіГ­Г¤ГЁГ°ГҐ. ГЌГ Г¤Г® ГЇГ®Г·ГЁГ±ГІГЁГІГј!");
 	                    return;
 	                }
 	                if (potatos[i].Have_wholeness)
 	                {
-	                	JOptionPane.showMessageDialog(null, "У нас обычная картошка, не порезанная. Надо порезать!");
+	                	JOptionPane.showMessageDialog(null, "Г“ Г­Г Г± Г®ГЎГ»Г·Г­Г Гї ГЄГ Г°ГІГ®ГёГЄГ , Г­ГҐ ГЇГ®Г°ГҐГ§Г Г­Г­Г Гї. ГЌГ Г¤Г® ГЇГ®Г°ГҐГ§Г ГІГј!");
 	                    return;
 	                }
 	            }
@@ -262,7 +261,7 @@ public class Kitchen {
 	                fryer.AddPotato(potatos[i]);
 	            }
 	            ingr += 1;
-	            JOptionPane.showMessageDialog(null, "Картошку положили, можно готовить");
+	            JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГі ГЇГ®Г«Г®Г¦ГЁГ«ГЁ, Г¬Г®Г¦Г­Г® ГЈГ®ГІГ®ГўГЁГІГј");
 			}
 		});
 		button_4.setBounds(109, 178, 147, 23);
@@ -270,18 +269,18 @@ public class Kitchen {
 		
 		JButton button_5 = new JButton("\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u043B\u044C");
 		button_5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {//соль
+			public void actionPerformed(ActionEvent arg0) {//Г±Г®Г«Гј
 				 salt = new Salt();
 		            salt.count = Integer.parseInt(spinner_1.getValue().toString());
 		            if (salt.count > 0)
 		            {
 		                fryer.AddSalt(salt);
 		                ingr += 10;
-		                JOptionPane.showMessageDialog(null, "Соль добавили");
+		                JOptionPane.showMessageDialog(null, "Г‘Г®Г«Гј Г¤Г®ГЎГ ГўГЁГ«ГЁ");
 		            }
 		            else
 		            {
-		            	JOptionPane.showMessageDialog(null, "Соли же нет, что добавлять?");
+		            	JOptionPane.showMessageDialog(null, "Г‘Г®Г«ГЁ Г¦ГҐ Г­ГҐГІ, Г·ГІГ® Г¤Г®ГЎГ ГўГ«ГїГІГј?");
 		            }
 			}
 		});
@@ -300,14 +299,14 @@ public class Kitchen {
 		
 		JButton btnNewButton = new JButton("\u041F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u0438\u0442\u044C");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {//приготовить
+			public void actionPerformed(ActionEvent arg0) {//ГЇГ°ГЁГЈГ®ГІГ®ГўГЁГІГј
 				if(radioButton_2.isSelected() == true)
 					fryer.power = true;
 				else 
 					fryer.power = false;
 				 if (!fryer.power)
 		            {
-					 JOptionPane.showMessageDialog(null, "Фритюрница не включена.");
+					 JOptionPane.showMessageDialog(null, "Г”Г°ГЁГІГѕГ°Г­ГЁГ¶Г  Г­ГҐ ГўГЄГ«ГѕГ·ГҐГ­Г .");
 		                return;
 		            }
 		         
@@ -315,11 +314,11 @@ public class Kitchen {
 		            if (ingr == 16)
 		            {
 		                ready = true;
-		                JOptionPane.showMessageDialog(null, "Приготовилось!");
+		                JOptionPane.showMessageDialog(null, "ГЏГ°ГЁГЈГ®ГІГ®ГўГЁГ«Г®Г±Гј!");
 		            }
 		            else
 		            {
-		            	JOptionPane.showMessageDialog(null, "Что-то пошло не так, картошка не сварилась");
+		            	JOptionPane.showMessageDialog(null, "Г—ГІГ®-ГІГ® ГЇГ®ГёГ«Г® Г­ГҐ ГІГ ГЄ, ГЄГ Г°ГІГ®ГёГЄГ  Г­ГҐ Г±ГўГ Г°ГЁГ«Г Г±Гј");
 		                return;
 		            }
 			}
@@ -333,14 +332,14 @@ public class Kitchen {
 		
 		JButton button_6 = new JButton("\u0414\u043E\u0441\u0442\u0430\u0442\u044C \u0438\u0437 \u0444\u0440\u0438\u0442\u044E\u0440\u043D\u0438\u0446\u044B");
 		button_6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {//достать
+			public void actionPerformed(ActionEvent arg0) {//Г¤Г®Г±ГІГ ГІГј
 				if (ready)
 	            {
-					JOptionPane.showMessageDialog(null, "Приятного аппетита");
+					JOptionPane.showMessageDialog(null, "ГЏГ°ГЁГїГІГ­Г®ГЈГ® Г ГЇГЇГҐГІГЁГІГ ");
 	            }
 	            else
 	            {
-	            	JOptionPane.showMessageDialog(null, "Картошка не приготовилась!");
+	            	JOptionPane.showMessageDialog(null, "ГЉГ Г°ГІГ®ГёГЄГ  Г­ГҐ ГЇГ°ГЁГЈГ®ГІГ®ГўГЁГ«Г Г±Гј!");
 	                return;
 	            }
 			}
